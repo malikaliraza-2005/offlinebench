@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Last updated** | 2026-11-02 (P9-T18: written; dry run not done yet) |
+| **Last updated** | 2026-11-07 (P9-T18: dry run done, see §6) |
 | **Related** | [deployment.md](deployment.md) · [phase-09-quality-hardening.md](phases/phase-09-quality-hardening.md) · [phase-10-launch.md](phases/phase-10-launch.md) · [acceptance-criteria.md](../05-quality/acceptance-criteria.md) |
 
 The steps from a green `main` to a public, indexed site. Work top to bottom; each line is a yes/no check. The dry run (P9-T18) goes through sections 1–3 on a preview deployment, marking what can only be done on production.
@@ -85,4 +85,4 @@ Run on the preview during the dry run, and again on `https://offlinebench.pages.
 
 | Date | Where | Result | Follow-ups |
 |---|---|---|---|
-| | | | |
+| 2026-11-07 | Preview `p9-stage-4-fixes.offlinebench.pages.dev` | Section 3 scripted: headers, 404, redirects, `/_headers` hidden, service worker and static caching, OG image types, robots, sitemap (31 URLs), canonical, Article dates, Licenses pages; in Chromium: 0 console errors, 0 cross-origin requests on 6 pages, command palette opens, offline reload of a tool works. `npm audit --omit=dev` 0, licence gate passes, CI on `main` green. All pass | Not checked in the dry run: Cloudflare settings in the dashboard (section 2; the deployed URLs and build behave as configured); favorites and smart paste (E2E only). Rich Results on a guide to re-test after merge. Open: screen-reader pass (P9-T06), owner actions in section 1 |

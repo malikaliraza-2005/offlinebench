@@ -228,10 +228,11 @@ export function InstrumentHero({ tools }: { tools: HeroTool[] }) {
     <div className="flex flex-col gap-3">
       <div
         ref={surface}
+        data-hero-surface
         data-dragging={dragging || undefined}
         className={cn(
-          "overflow-hidden rounded-xl border bg-surface shadow-1 transition-control",
-          dragging ? "scale-101 border-accent bg-accent-soft" : "border-border-strong",
+          "overflow-hidden rounded-xl border shadow-1 transition-control",
+          dragging ? "scale-101 border-accent bg-accent-soft" : "border-border-strong bg-surface",
         )}
       >
         <div className="relative flex items-center">
@@ -265,7 +266,11 @@ export function InstrumentHero({ tools }: { tools: HeroTool[] }) {
             onFocus={loadSearch}
             onKeyDown={onSearchKeyDown}
             placeholder={`Search ${tools.length} tools, or paste text…`}
-            className="h-14 w-full bg-transparent pr-4 pl-12 text-body-lg text-fg outline-none placeholder:text-fg-subtle md:h-16 md:pl-14"
+            className={cn(
+              "h-14 w-full bg-transparent pr-4 pl-12 text-body-lg text-fg outline-none md:h-16 md:pl-14",
+              // fg-subtle falls below 4.5:1 on the soft accent fill.
+              dragging ? "placeholder:text-fg-muted" : "placeholder:text-fg-subtle",
+            )}
           />
         </div>
         {results.length > 0 && (

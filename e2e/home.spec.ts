@@ -61,6 +61,35 @@ test.describe("homepage", () => {
     await expect(page).toHaveURL(/\/merge-pdf$/);
   });
 
+  test("dragging a file over the page fills the hero with the soft accent", async ({ page }) => {
+    await ready(page);
+    const hero = page.locator("[data-hero-surface]");
+    const fill = () =>
+      hero.evaluate((element) => {
+        const probe = document.createElement("div");
+        probe.style.background = "var(--accent-soft)";
+        document.body.append(probe);
+        const soft = getComputedStyle(probe).backgroundColor;
+        probe.remove();
+        return getComputedStyle(element).backgroundColor === soft;
+      });
+    const drag = (type: string) =>
+      page.evaluate((eventType) => {
+        const data = new DataTransfer();
+        data.items.add(new File(["x"], "a.pdf", { type: "application/pdf" }));
+        window.dispatchEvent(new DragEvent(eventType, { dataTransfer: data }));
+      }, type);
+
+    expect(await fill()).toBe(false);
+    await drag("dragenter");
+    await expect(hero).toHaveAttribute("data-dragging", "true");
+    await expect.poll(fill).toBe(true);
+    await expectNoA11yViolations(page);
+    await drag("dragleave");
+    await expect(hero).not.toHaveAttribute("data-dragging");
+    await expect.poll(fill).toBe(false);
+  });
+
   test("a dropped PDF is offered to the PDF tools and handed over", async ({ page }) => {
     await ready(page);
     await chooseFiles(page, [await pdf("contract.pdf")]);

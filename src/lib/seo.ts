@@ -252,6 +252,9 @@ export function guideMetadata(guide: GuideMeta): Metadata {
   };
 }
 
+/** Guides are dated by day; Google's Article check also wants a time and a time zone. */
+const articleDate = (day: string) => `${day}T00:00:00Z`;
+
 /** BreadcrumbList (OfflineBench › Guides › guide) and an Article matching the visible byline. */
 export function guideJsonLd(guide: GuideMeta): JsonLdNode {
   const url = absoluteUrl(guidePath(guide));
@@ -276,8 +279,8 @@ export function guideJsonLd(guide: GuideMeta): JsonLdNode {
     mainEntityOfPage: url,
     // The shared Open Graph image (app/opengraph-image.tsx).
     image: absoluteUrl("/opengraph-image"),
-    datePublished: guide.published,
-    dateModified: guide.updated,
+    datePublished: articleDate(guide.published),
+    dateModified: articleDate(guide.updated),
     author: { "@type": "Person", name: guide.author, url: absoluteUrl("/about") },
     publisher: {
       "@type": "Organization",

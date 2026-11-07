@@ -173,8 +173,8 @@ describe("guides", () => {
     expect(graph[1]).toMatchObject({
       "@type": "Article",
       headline: guide.h1,
-      datePublished: guide.published,
-      dateModified: guide.updated,
+      datePublished: `${guide.published}T00:00:00Z`,
+      dateModified: `${guide.updated}T00:00:00Z`,
       author: { "@type": "Person", name: guide.author },
       citation: guide.sources.map((source) => source.url),
     });
