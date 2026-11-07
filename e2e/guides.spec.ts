@@ -45,7 +45,7 @@ for (const guide of GUIDES) {
     await expect(byline).toBeVisible();
     await expect(byline.locator("time").first()).toHaveAttribute(
       "datetime",
-      article.datePublished as string,
+      (article.datePublished as string).slice(0, 10),
     );
 
     await expect(
