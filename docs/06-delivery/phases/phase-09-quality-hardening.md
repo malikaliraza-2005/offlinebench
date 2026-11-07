@@ -80,8 +80,8 @@ All gates passing; issues fixed; launch checklist and analytics plan written.
   - *Done (2026-11-07):* no `noindex` header or meta tag on production's public pages; only `_gallery` and the 404 page carry one.
 
 ### Launch preparation
-- [ ] **P9-T18** Write `06-delivery/launch-checklist.md` and do a dry run.
-  - *Progress:* [launch-checklist.md](../launch-checklist.md) written; dry run on a preview still to do.
+- [x] **P9-T18** Write `06-delivery/launch-checklist.md` and do a dry run.
+  - *Done (2026-11-07):* [launch-checklist.md](../launch-checklist.md) written; dry run on a preview logged in its §6.
 - [x] **P9-T19** Write `06-delivery/analytics-monitoring.md`; decide analytics provider (Cloudflare Web Analytics proposed); add its hosts to CSP and Privacy page.
   - *Done:* owner decided no analytics at launch (2026-11-02); [analytics-monitoring.md](../analytics-monitoring.md) written; CSP and Privacy page unchanged; P10-T03 skipped.
 
