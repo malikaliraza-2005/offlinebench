@@ -66,7 +66,7 @@ Check:
 2. Pick the last good production deployment → **⋯ → Rollback to this deployment**. The switch is instant.
 3. Revert the bad commit on `main` (`git revert`), so the next deploy does not bring the problem back.
 
-Test this once in Phase 1 by rolling back to an earlier deployment and then forward again.
+Tested on 2026-11-08 (P1-T18): rolled back to an earlier production deployment and then forward again. In the deployment list, previews and production deployments are mixed: pick a row marked **Production**.
 
 ## 5. Limits to watch
 

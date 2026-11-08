@@ -401,4 +401,13 @@ Any revisit must happen **before the first production deploy**. After that, slug
 
 | Comparison | Ordering found | Date | By |
 |---|---|---|---|
-| | | | |
+| jpg to pdf · image to pdf · png to pdf · photo to pdf | jpg to pdf ≫ image to pdf > photo to pdf ≈ png to pdf. Confirms `jpg-to-pdf` | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+| pdf to jpg · pdf to image · pdf to png | pdf to jpg ≫ pdf to image > pdf to png. Confirms `pdf-to-jpg` | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+| base64 decode · base64 encode · base64 decoder · base64 encoder | base64 decode > base64 encode > base64 decoder > base64 encoder. Confirms `base64-encode-decode` | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+| url decode · url encode · url decoder · url encoder | url decode ≈ url encode > url decoder ≈ url encoder (the "-er" forms swing week to week). Confirms `url-encode-decode` | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+| jwt decoder · jwt decode · decode jwt | jwt decode ≈ decode jwt ≫ jwt decoder. The slug is the smaller phrasing; "jwt decode" and "decode jwt" are already in the keywords and description. Slug kept (D-11) | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+| unix timestamp converter · epoch converter · timestamp converter | epoch converter > timestamp converter ≫ unix timestamp converter. The slug is the smallest phrasing; title and H1 already include "epoch converter". Slug kept (D-11) | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+| organize pdf · rearrange pdf pages · delete pages from pdf · rotate pdf | rotate pdf ≈ organize pdf (organize pdf is spiky) > delete pages from pdf ≫ rearrange pdf pages. Rotate PDF is the strongest post-launch page candidate | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+| heic to jpg · merge pdf · json formatter · remove exif data · hash generator | merge pdf ≫ heic to jpg > json formatter > hash generator > remove exif data (near 0 on this scale) | 2026-11-08 | Owner (CSV), worldwide, past 12 months |
+
+Orderings are from the weekly values in Google Trends' CSV export (relative interest, not volumes). This check was meant to happen before the first production deploy; it happened after, so slugs stay as they are (D-11). Where a slug is the weaker phrasing, the stronger one is already in the page's title, H1 or keywords.

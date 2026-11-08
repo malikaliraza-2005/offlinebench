@@ -20,6 +20,7 @@ Make OfflineBench public, get it indexed, and introduce it to the right communit
 
 ### Go live
 - [ ] **P10-T01** Connect the domain (if D-1 = buy) to Cloudflare Pages; set `NEXT_PUBLIC_SITE_URL`; HTTPS verified; redirect `*.pages.dev` production host to the domain.
+  - *Not needed at launch (2026-11-08):* owner decided to stay on the free `offlinebench.pages.dev` for now and buy `offlinebench.app` later (D-1 unchanged). Do this task when the domain is bought.
 - [ ] **P10-T02** Production deploy from `main`; smoke test every tool on production.
 - [ ] ~~**P10-T03** Enable analytics~~: skipped, no analytics at launch (P9-T19, [analytics-monitoring.md](../analytics-monitoring.md)). Set up Search Console and Bing instead (P10-T04, P10-T05).
 
