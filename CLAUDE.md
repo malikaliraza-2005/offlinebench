@@ -24,9 +24,9 @@ Phase 5 (PDF tools) is done: split, organize, jpg-to-pdf, pdf-to-jpg and sign-pd
 
 Phase 4 (developer tools) is done: 8 tools in `src/tools/`, all smart-paste detectors in `src/lib/detect/`. Its deferrals (real Android/Safari, screen reader, content review, performance budget) join Phase 3's in Phases 8–9.
 
-Phase 3 (tool platform + pilots) is done: registry in `src/tools/`, shared tool UI in `src/components/tool/`, pilots `json-formatter` and `merge-pdf`. Its deferrals (performance budget R-14, real Safari, screen reader, content review, `pako` licence) are tracked in Phases 8–9. Still open from Phase 1: P1-T18 rollback test (owner).
+Phase 3 (tool platform + pilots) is done: registry in `src/tools/`, shared tool UI in `src/components/tool/`, pilots `json-formatter` and `merge-pdf`. Its deferrals (performance budget R-14, real Safari, screen reader, content review, `pako` licence) are tracked in Phases 8–9. Phase 1's last task, the P1-T18 rollback test, was done on 2026-11-08.
 
-Carried over from Phase 0 (owner actions, see [risks-and-decisions.md](docs/06-delivery/risks-and-decisions.md)): launch on the free `offlinebench.pages.dev` and buy `offlinebench.app` later (D-1); manual trademark search for "OfflineBench" (D-15: renamed from Sprigkit, whose search found the SPRIG software trademark); manual Google Trends check before the first production deploy (P0-T05).
+Carried over from Phase 0 (owner actions, see [risks-and-decisions.md](docs/06-delivery/risks-and-decisions.md)): launch on the free `offlinebench.pages.dev` and buy `offlinebench.app` later (D-1). Done on 2026-11-08: the trademark search for "OfflineBench" found nothing (D-15: renamed from Sprigkit, whose search found the SPRIG software trademark), and the Google Trends check (P0-T05) kept every slug.
 
 Work from the current phase's task checklist. Tick tasks when done and reference task IDs in commits (e.g. `P3-T07: …`). When a phase's exit criteria all pass, update the status in [docs/06-delivery/phases/README.md](docs/06-delivery/phases/README.md) and this section. Master plan: [implementation-roadmap.md](docs/06-delivery/implementation-roadmap.md).
 

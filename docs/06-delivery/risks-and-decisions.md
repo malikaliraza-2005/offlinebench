@@ -209,6 +209,7 @@ D-2 to D-4 and D-7 to D-10 were made before Phase 0 and are summarized above; th
   - The Cloudflare Pages project keeps its name (`sprigkit.pages.dev` hosts in the docs are real); it can be renamed in the dashboard later.
   - The JWT decoder's sample token is re-signed with the new sample secret, and the Base64 samples re-encoded.
   - Owner: create the Cloudflare Pages project `offlinebench` right away (free; reserves `offlinebench.pages.dev`), search "OfflineBench" in WIPO, USPTO and TMview (classes 9 and 42), then register `offlinebench.app` when the budget allows (launch is on `offlinebench.pages.dev`, D-1). Fallbacks (all four checks passed on 2026-11-06 except a parked `.com`): PrivateBench, HereOnly.
+  - *Trademark search done (2026-11-08):* owner searched WIPO Global Brand Database, USPTO and TMview for "OfflineBench" and "Offline Bench", and Google Play and the Chrome Web Store for "OfflineBench": nothing found. This is a search, not legal clearance.
 
 ### D-16: Launch without a screen-reader pass
 

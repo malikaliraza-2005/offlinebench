@@ -20,9 +20,9 @@ The steps from a green `main` to a public, indexed site. Work top to bottom; eac
 
 ### Owner actions carried from Phase 0
 - [ ] Cloudflare Pages project named `offlinebench` (free address `offlinebench.pages.dev`, D-1). Domain `offlinebench.app`: later.
-- [ ] Manual trademark search for "OfflineBench" done (D-5).
-- [ ] Google Trends check done (P0-T05).
-- [ ] Rollback tested once (P1-T18, [deployment.md §4](deployment.md#4-rollback-p1-t18)).
+- [x] Manual trademark search for "OfflineBench" done (D-5, D-15). *2026-11-08: owner searched WIPO Global Brand Database, USPTO and TMview for "OfflineBench" and "Offline Bench", plus Google Play and the Chrome Web Store: nothing found. Not legal clearance.*
+- [x] Google Trends check done (P0-T05). *2026-11-08, after the first production deploy: results in [keyword-research.md §5](../03-seo-growth/keyword-research.md); no slug changes.*
+- [x] Rollback tested once (P1-T18, [deployment.md §4](deployment.md#4-rollback-p1-t18)).
 
 ### Decisions
 - [x] Analytics decided: none at launch (P9-T19, [analytics-monitoring.md](analytics-monitoring.md)). CSP and Privacy page unchanged.

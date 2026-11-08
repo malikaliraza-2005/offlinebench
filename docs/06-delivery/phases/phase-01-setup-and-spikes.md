@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | 🟨 In progress: code, CI config, spikes and docs done; only P1-T18 (rollback test, owner) open |
+| **Status** | ✅ Done (P1-T18 rollback test done 2026-11-08) |
 | **Effort** | 3–5 days [Estimate] |
 | **Milestone** | M1: Pipeline live |
 
@@ -49,7 +49,8 @@ A clean, deployable project with CI, preview deployments, and security headers, 
 - [x] **P1-T15** Cloudflare Pages project connected to the repo; build command, output `out`, env `NEXT_PUBLIC_SITE_URL` per environment. Done 2026-10-13: Pages project `offlinebench` (`https://sprigkit.pages.dev`), production branch `main`.
 - [x] **P1-T16** `public/_headers`: CSP + security headers; `X-Robots-Tag: noindex` on preview hostnames (or via environment-aware build).
 - [x] **P1-T17** Verify headers on a preview deployment (DevTools / `curl -I`); confirm static pages, 404 page, and clean URLs work. Done 2026-10-13 on `sprigkit.pages.dev` and preview `p1-ci-green.sprigkit.pages.dev`: CSP and security headers present, `X-Robots-Tag: noindex`, unknown URL → 404 page, `/index.html` → 308 to `/`, `/_headers` not served, `/_next/static/*` immutable.
-- [ ] **P1-T18** Test rollback: promote a previous deployment in the dashboard. **Open (owner action):** after T15; steps in [deployment.md §4](../deployment.md#4-rollback-p1-t18).
+- [x] **P1-T18** Test rollback: promote a previous deployment in the dashboard. **Open (owner action):** after T15; steps in [deployment.md §4](../deployment.md#4-rollback-p1-t18).
+  - *Done (2026-11-08):* owner rolled production back from the PR #20 deployment to the PR #19 one in the dashboard, then forward again. The live homepage then matched the PR #20 deployment byte for byte.
 
 ### Spikes (throwaway code in a `spikes/` branch; record outcomes)
 - [x] **P1-T19** **jSquash WASM** in a module worker with Turbopack: encode a JPEG and WebP; confirm WASM files are emitted, self-hosted, and allowed by CSP (`wasm-unsafe-eval`). Fallback: `--webpack` build or WASM in `public/`.
