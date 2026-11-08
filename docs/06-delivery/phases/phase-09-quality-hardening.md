@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | 🟨 In progress |
+| **Status** | ✅ Done (2026-11-08; the screen-reader gate was waived by the owner, D-16) |
 | **Effort** | 5–7 days [Estimate] |
 | **Milestone** | M6: Launch-ready |
 
@@ -24,13 +24,14 @@ All gates passing; issues fixed; launch checklist and analytics plan written.
 ## Tasks
 
 ### Functional & device testing
-- [ ] **P9-T01** Full device matrix run: Chrome, Edge, Firefox, Safari (macOS), Safari (iOS, real device), Chrome (mid-range Android, real device). Every tool's main flow + one error flow. The Phase 3 pilots have never run on real Safari: give them the full Definition of Done there (deferred from P3-T24). The same for the 8 Phase 4 developer tools on real Android and Safari (deferred from P4-T10), including whether the theme switch's View Transition crashes Safari on long pages, as it does Playwright's WebKit.
+- [x] **P9-T01** Full device matrix run: Chrome, Edge, Firefox, Safari (macOS), Safari (iOS, real device), Chrome (mid-range Android, real device). Every tool's main flow + one error flow. The Phase 3 pilots have never run on real Safari: give them the full Definition of Done there (deferred from P3-T24). The same for the 8 Phase 4 developer tools on real Android and Safari (deferred from P4-T10), including whether the theme switch's View Transition crashes Safari on long pages, as it does Playwright's WebKit.
   - *Progress (2026-11-06):* owner tested the tools on real mobile devices: everything works. Still to do: Safari on macOS and a quick desktop pass in Chrome, Edge and Firefox (CI covers their engines).
   - *Progress (2026-11-07):* owner tested all 19 tools' main and mistake flows in desktop Chrome on production: no problems reported. Owner then ran the same flows in Safari on macOS, plus the theme switch on a long guide page, and a quick pass (Merge PDF, Compress Image, JSON Formatter, theme switch) in Edge and Firefox: no problems reported.
+  - *Done (2026-11-08):* owner confirmed the phone testing included Android (model not recorded). Edge and Firefox had the quick pass above, not all 19 tools by hand; CI runs every tool on their engines.
 - [x] **P9-T02** Large-file and memory testing on mobile; confirm limits and error messages. From the P8-T04 content review: registry `limits` are not enforced on pasted text in jwt-decoder (64 KB / 1 MB) and regex-tester (1 MB / 10 MB), and json-formatter and base64-encode-decode enforce 50 MB only on opened files. Enforce them or change the registry. Going over a file-count limit (e.g. 101 files in merge-pdf) shows a byte-size message (`src/lib/files/limits.ts`); give it its own message.
   - *Done (code):* `checkTextLimits` enforces the registry hard limit on pasted text in all four tools (UTF-8 bytes); `maxFiles` now has its own `tooManyFiles` message. Mobile large-file and memory testing still to do.
   - *Done (2026-11-07):* owner tested on real phones (models not recorded): 10 photos in Compress Image, about 60 MB in Merge PDF, a 100+ page PDF in PDF to JPG and Organize PDF, and a PDF over the 150 MB limit: no problems reported.
-- [ ] **P9-T03** Fix all P0/P1 bugs; log the rest.
+- [x] **P9-T03** Fix all P0/P1 bugs; log the rest.
   - *Progress (2026-11-07):* fixed the layout shift from the font swap on slow connections (CLS about 0.21 on `/unix-timestamp-converter` and `/base64-encode-decode`) with `font-display: optional` ([performance.md §2.4](../../05-quality/performance.md)). Fixed: the homepage hero stayed white during drag-over because `bg-surface` beat its soft accent fill; the search placeholder uses `fg-muted` in that state, since `fg-subtle` is 4.32:1 on the fill in light mode.
 
 ### Accessibility
@@ -39,7 +40,7 @@ All gates passing; issues fixed; launch checklist and analytics plan written.
 - [x] **P9-T05** Manual keyboard-only pass of every tool, including drag-and-drop alternatives.
   - *Done (2026-11-07):* owner ran a keyboard-only pass in desktop Chrome on production: homepage, command palette, theme switch, the drag-and-drop alternatives (Merge PDF, Organize PDF, Fill & Sign PDF, Resize Image crop, Compress Image slider) and a quick pass of the other 14 tools: no problems reported. Real browser zoom (P9-T07) moves to the visual pass (P9-T12).
 - [ ] **P9-T06** Screen-reader pass (NVDA on Windows; VoiceOver on iOS for key flows).
-  - *Not tested (2026-11-07):* owner chose to skip this for now. The site has never been tested with a real screen reader, so the exit criterion "manual keyboard and screen-reader passes complete" stays open.
+  - *Not tested; moved to P11-T14 (2026-11-08):* owner decided to launch without it ([D-16](../risks-and-decisions.md#d-16-launch-without-a-screen-reader-pass)). The site has never been tested with a real screen reader.
 - [x] **P9-T07** 200% zoom and 320px width pass.
   - *Done (automated):* `e2e/reflow.spec.ts` loads every sitemap page at 320 px and at 640 px (a 1280 px window at 200% zoom): no horizontal scrolling. Every tool state the E2E tests reach is also checked at phone width (`noOverflow` fixture). A look at real browser zoom is part of the owner's keyboard pass (P9-T05).
 
@@ -73,7 +74,7 @@ All gates passing; issues fixed; launch checklist and analytics plan written.
 - [x] **P9-T16** Crawl the preview (free crawler or custom script): no broken links, correct canonicals, no orphan pages, sitemap complete. Run Google's Rich Results Test and the Schema.org validator on one page of each type (home, hub, tool, site page, guide index, guide), deferred from P3-T07 and P8-T14; `e2e/structured-data.spec.ts` already checks every page locally.
   - *Progress:* `e2e/crawl.spec.ts` crawls the local build from `/`: no broken internal links, canonicals match, no orphan pages. The crawl of the preview and the Rich Results Test remain.
   - *Progress (2026-11-07):* preview and production crawled: 31 of 31 sitemap pages, no broken links, orphans, canonical problems or duplicate titles and descriptions; all 9 external links work. Owner ran the Rich Results Test on one page of each type: all valid. Its non-critical notes: software apps have no ratings (leave them: ratings are never invented); guides had no Article `image` (added).
-  - *Done (2026-11-07):* on production, the guide's Article `image` note is gone and the Schema.org validator reports 0 errors and 0 warnings. Four notes remained, all on dates without a time zone; Article dates now carry a time and time zone. Re-test one guide after the next deploy. The validator was run on the guide page only, not on one page of each type.
+  - *Done (2026-11-07):* on production, the guide's Article `image` note is gone and the Schema.org validator reports 0 errors and 0 warnings. Four notes remained, all on dates without a time zone; Article dates now carry a time and time zone; owner re-tested a guide after the deploy and reported no problems. The validator was run on the guide page only, not on one page of each type.
 - [x] **P9-T17** Verify production build will be indexable (no stray `noindex`) and previews are not.
   - *Progress:* only 404, `_not-found` and `_gallery` carry `noindex`; `*.pages.dev` gets `X-Robots-Tag: noindex`. A production build (`CF_PAGES_BRANCH=main`) without an `https://` `NEXT_PUBLIC_SITE_URL` now fails (`next.config.ts`). Check headers on production at launch.
   - *Progress (2026-11-06):* the preview host sends `X-Robots-Tag: noindex` as intended.
@@ -89,12 +90,12 @@ All gates passing; issues fixed; launch checklist and analytics plan written.
 launch-checklist.md · analytics-monitoring.md · browser-device-support.md (final) · acceptance-criteria.md (results)
 
 ## Exit criteria (release gates)
-- [ ] All tools pass the Definition of Done on the full device matrix.
-- [ ] Zero axe violations; manual keyboard and screen-reader passes complete.
-- [ ] Lighthouse budgets enforced and passing on every page type.
+- [x] All tools pass the Definition of Done on the full device matrix (Edge and Firefox: quick pass plus CI, see P9-T01).
+- [ ] Zero axe violations; manual keyboard and screen-reader passes complete. **Waived in part (D-16):** axe and keyboard pass; screen-reader pass not done, moved to P11-T14.
+- [x] Lighthouse budgets enforced and passing on every page type.
 - [x] No-network test passes for all tools; CSP verified in production.
-- [ ] No known P0/P1 bugs.
-- [ ] Launch checklist dry run complete.
+- [x] No known P0/P1 bugs.
+- [x] Launch checklist dry run complete.
 
 ## Risks & fallbacks
 | Risk | Fallback |

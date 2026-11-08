@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | ⬜ Not started |
+| **Status** | 🟨 In progress |
 | **Effort** | 2–3 days [Estimate] (plus community follow-up) |
 | **Milestone** | M7: Launched |
 

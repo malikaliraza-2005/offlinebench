@@ -33,6 +33,7 @@ This file is the **decision log** and **risk register** for OfflineBench (named 
 | D-13 | Repository visibility and license (P1-T01) | **[Decision]** (proposed, owner to confirm) | Public GitHub repo, **all rights reserved** (no open-source license) (see record) | 2026-10-13 |
 | D-14 | Bundler for dev and production builds | **[Decision]** | **Webpack** (`--webpack`), not Turbopack: Turbopack workers fail in WebKit (see record) | 2026-10-13 |
 | D-15 | Product name after trademark search | **[Decision]** | **OfflineBench** replaces Sprigkit: "SPRIG" is a registered software trademark; Ondevo, KeptLocal and QuietBench were dropped because an active business or a direct competitor already uses them (see record) | 2026-11-06 |
+| D-16 | Screen-reader pass before launch (P9-T06) | **[Decision]** | **Launch without it**; the pass moves to after launch as P11-T14 (see record) | 2026-11-08 |
 
 D-2 to D-4 and D-7 to D-10 were made before Phase 0 and are summarized above; their reasoning lives in the linked documents.
 
@@ -208,6 +209,15 @@ D-2 to D-4 and D-7 to D-10 were made before Phase 0 and are summarized above; th
   - The Cloudflare Pages project keeps its name (`sprigkit.pages.dev` hosts in the docs are real); it can be renamed in the dashboard later.
   - The JWT decoder's sample token is re-signed with the new sample secret, and the Base64 samples re-encoded.
   - Owner: create the Cloudflare Pages project `offlinebench` right away (free; reserves `offlinebench.pages.dev`), search "OfflineBench" in WIPO, USPTO and TMview (classes 9 and 42), then register `offlinebench.app` when the budget allows (launch is on `offlinebench.pages.dev`, D-1). Fallbacks (all four checks passed on 2026-11-06 except a parked `.com`): PrivateBench, HereOnly.
+
+### D-16: Launch without a screen-reader pass
+
+- **Context:** Phase 9's exit criteria include a manual screen-reader pass (NVDA, and VoiceOver on iOS). It was the last open gate. A 15-minute NVDA-only version was offered as the recommended option.
+- **Decision:** the owner chose to launch without it (2026-11-08).
+- **Consequences:**
+  - The site has never been tested with a real screen reader. Automated axe checks and the owner's keyboard pass cover part of this, but they can't show whether results and errors are announced, or whether the spoken order makes sense. Problems for screen-reader users may exist until the pass is done.
+  - The gate is waived, not passed. The pass is now **P11-T14**, the first accessibility task after launch.
+  - Copy must not claim the site has been tested with screen readers until it has.
 
 ---
 

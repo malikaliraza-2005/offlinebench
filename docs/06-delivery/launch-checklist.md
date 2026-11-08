@@ -13,7 +13,7 @@ The steps from a green `main` to a public, indexed site. Work top to bottom; eac
 
 ### Release gates (Phase 9 exit criteria)
 - [ ] All 19 tools pass the Definition of Done on the full device matrix ([browser-device-support.md](../05-quality/browser-device-support.md)).
-- [ ] Zero axe violations (`e2e/a11y.spec.ts` and the tool specs); manual keyboard and screen-reader passes done.
+- [ ] Zero axe violations (`e2e/a11y.spec.ts` and the tool specs); manual keyboard pass done. Screen-reader pass waived by the owner and moved to P11-T14 (D-16).
 - [ ] Lighthouse CI budgets enforced and passing (`npm run lhci`).
 - [ ] No-network E2E passes for every tool; CSP verified on production headers.
 - [ ] No known P0/P1 bugs.

@@ -38,6 +38,7 @@ Improve OfflineBench with real data: fix what users hit, strengthen pages that g
 - [ ] **P11-T11** Write `06-delivery/maintenance.md` (the loops above as a runbook).
 - [ ] **P11-T12** Write `03-seo-growth/monetization.md` when monetization is first considered.
 - [ ] **P11-T13** Items deferred from earlier phases (e.g. regex explanation, sign-pdf form filling if postponed, CSP hash hardening).
+- [ ] **P11-T14** Screen-reader pass (NVDA on Windows; VoiceOver on iOS for key flows), moved from P9-T06 by [D-16](../risks-and-decisions.md#d-16-launch-without-a-screen-reader-pass). Fix what it finds.
 
 ## Success signals to watch (no numeric targets until baselines exist)
 - Growing count of tool pages receiving search impressions.
