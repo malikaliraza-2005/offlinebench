@@ -27,7 +27,9 @@ Make OfflineBench public, get it indexed, and introduce it to the right communit
 ### Search engines
 - [ ] **P10-T04** Google Search Console: verify property, submit sitemap, URL-inspect homepage + 5 key tool pages, request indexing.
   - *Progress:* URL-prefix property for `https://offlinebench.pages.dev/`, verified by `public/google4624aa71a897255e.html`. Keep that file: removing it can undo the verification. When a domain is bought, add a new property and use Change of Address.
-- [ ] **P10-T05** Bing Webmaster Tools: verify, submit sitemap.
+  - *Progress (2026-11-08):* the sitemap submitted on 2026-11-06 showed "Couldn't fetch" and had never been read; `/sitemap.xml` serves valid XML (200, `application/xml`) to Googlebot, so it was resubmitted. Indexing requested for the homepage; the 5 tool pages (merge-pdf, jpg-to-pdf, pdf-to-jpg, compress-image, json-formatter) are "URL is not on Google" and hit the daily request quota. Still to do: request those 5 on later days and confirm the sitemap reads "Success".
+- [x] **P10-T05** Bing Webmaster Tools: verify, submit sitemap.
+  - *Done (2026-11-08):* site imported from Search Console (verification and sitemap). `jpg-to-pdf` already "Indexed successfully"; indexing requested for the others. Two pages, one of them `pdf-to-jpg`, were not indexed: one "Blocked" ("known to Bing but has some issues"), and `pdf-to-jpg`'s live test "not able to fetch this page". Both serve 200 with no `noindex` to the bingbot user agent, as `jpg-to-pdf` does. Re-check in about 2 weeks; if still blocked, contact Bing Webmaster support.
 - [ ] **P10-T06** Check rendered HTML in URL Inspection matches expectations (content present without JS interaction).
 
 ### Community launch (honest, following each community's rules)
